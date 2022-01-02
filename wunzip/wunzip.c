@@ -1,4 +1,3 @@
-
 /*
  * wunzip.c --- This program uncompresses files using the
  *              run-length encoding (RLE) algorithm.
