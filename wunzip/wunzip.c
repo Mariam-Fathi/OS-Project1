@@ -1,19 +1,20 @@
-/*
- * wunzip.c --- This program uncompresses files using the
- *              run-length encoding (RLE) algorithm.
- */
+
+//This program uncompresses files using the run-length encoding (RLE) algorithm.
+ 
 
 #include <stdio.h>
 #include <stdlib.h>
 
 
 int main(int argc, char *argv[]) {
+
   if (argc < 2) {
     printf("wunzip: file1 [file2 ...]\n");
     exit(1);
   }
 
   for (int i = 1; i < argc; i++) {
+
     FILE *fs = fopen(argv[i], "r");
 
     if (fs == NULL) {
