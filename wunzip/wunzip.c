@@ -8,14 +8,14 @@
 
 int main(int argc, char *argv[]) {
 
-  if (argc < 2) {
+  if (argc < 2) {     //No file to pass
     printf("wunzip: file1 [file2 ...]\n");
     exit(1);
   }
 
   for (int i = 1; i < argc; i++) {
 
-    FILE *fs = fopen(argv[i], "r");
+    FILE *fs = fopen(argv[i], "r");   
 
     if (fs == NULL) {
       printf("wzip: cannot open file\n");
