@@ -2,10 +2,10 @@
 
 #include <stdio.h>
 #include <errno.h>
-#include <stdlib.h>    // exit
-#include <string.h>    // strerror
+#include <stdlib.h>   
+#include <string.h>    
 
-#define BUFFER_SIZE 1024  //to determine the size of stored part of memory
+#define BUFFER_SIZE 1024  
 
 int main(int argc, char *argv[])
 {
