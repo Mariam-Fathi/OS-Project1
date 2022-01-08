@@ -65,30 +65,22 @@ We will type: prompt> ./wzip file.txt > file.z
 
 The “greater than” sign is a UNIX shell redirection.
 
-In this case, the output from wzip is written to the file file.z instead of being printed to the screen. You’ll learn more about how this works a little later in the course.
-
-The wunzip tool simply does the reverse of the wzip tool, takingin a compressed file and writing (to standard output again) theuncompressed results. For example, to see the contents of file.txt,you would type:
-
-prompt> ./wunzipfile.z
-
-wunzip should read in the compressed file (likely using fread())and print out the uncompressed output to standard output usingprintf().
-
-Details
-
-• Correct invocation should pass one or more files via thecommand line to the program; if no files are specified, the programshould exit with return code 1 and print “wzip: file1 [file2 …]”(followed by a newline) or “wunzip: file1 [file2 …]” (followed bya newline) for wzip and wunzip respectively.
-
-• The format of the compressed file must match the descriptionabove exactly (a 4-byte integer followed by a character for eachrun).
-
-• Do note that if multiple files are passed to *wzip, they arecompressed into a single compressed output, and when unzipped, willturn into a single uncompressed stream of text (thus, theinformation that multiple files were originally input into wzip islost). The same thing holds for wunzip.
+In this case, the output from wzip is written to the file file.z instead of being printed to the screen. 
 
 
-# tests of zip and unzip
 
-![wzip](https://user-images.githubusercontent.com/66404704/148626333-f2dbaf63-e263-46bd-865c-8777409b6adc.jpeg)
+The wunzip tool simply does the reverse of the wzip tool, taking from a compressed file and writing to standard output again the uncompressed results. For example, to see the contents of file.txt we will type:
+
+prompt> ./wunzip file.z
+
+wunzip should read in the compressed file (likely using fread())and print out the uncompressed output to standard output using printf().
+
+
+• If multiple files are passed to wzip they are compressed into a single compressed output, and when unzipped, will turn into a single uncompressed stream of text.
 
 
 
 
 
-Expert Answer
-Answer to wzip and wunzip – MUST BE WRITTEN IN C The next tools you will build come in a pair, because one (wzip) is a file comp…
+
+
