@@ -16,7 +16,7 @@ main(int argc, char *argv[])
     FILE *fp;        // pointer to file 
     char buff[2], oldBuff[2];
     int count;          // num of repetion of character 
-    if (argc <= 1) {  // If number of arguments in command line less or equal 2 
+    if (argc <= 1) {  // If number of arguments in command line less or equal 2  ,, no file pass
         printf("wzip: file1 [file2 ...]\n");
         exit(EXIT_FAILURE);   / / to terminate the program
     }
