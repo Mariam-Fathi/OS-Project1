@@ -1,6 +1,31 @@
 # OS-Project1
 
+# wcat
+ this is samble prgrame used to read aselected file by the user and print the file's cntents.
+ the cat is a standard Unix utility that is used to read ,create,copy and mix some files.
+# Syntax:
 
+  cat [options] [filenames] [-] [filenames]
+
+#examples of cat command:
+
+  1) To view a single file 
+Command:
+  $cat filename
+Output   
+  It will show content of given filename
+
+  2) To view multiple files 
+Command:
+  $cat file1 file2
+Output 
+  This will show the content of file1 and file2.
+
+  3) To view contents of a file preceding with line numbers. 
+Command: 
+   $cat -n filename
+Output 
+   It will show content with line number
 
 # cat tests
 
