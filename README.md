@@ -7,7 +7,7 @@
 
   cat [options] [filenames] [-] [filenames]
 
-#examples of cat command:
+# examples of cat command:
 
   1) To view a single file 
 Command:
