@@ -36,6 +36,11 @@ Explanation: let’s say we do grep line which will search for the word line in 
 
 
 
+# tests
+
+![wgrep](https://user-images.githubusercontent.com/66404704/148626285-f5ad1144-1b6d-4f02-9eec-61db073565ff.jpeg)
+
+
 
 # Wzip an Wunzip
 
