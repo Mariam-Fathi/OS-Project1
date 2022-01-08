@@ -1,44 +1,35 @@
 
 #include <stdio.h>
-#include <stdlib.h>    // exit
-#include <string.h>
-#include <arpa/inet.h> // for htonl function
-void
-writeFile(int count, char *oldBuff)
-{
-    count = htonl(count);    // write as network byte order (BIG endian)
-    fwrite(&count, 4, 1, stdout);   // write from address of count  , 4  (bytes for every elemnts) , 1 (number of elements) and each one with a size of size bytes.(4)
-    fwrite(oldBuff, 1, 1, stdout); //write in terminal from array of olddbuff
-}
+#include <stdlib.h>    // exit, free
+#include <string.h>    // strstr
+
 int
 main(int argc, char *argv[])
 {
-    FILE *fp;        // pointer to file 
-    char buff[2], oldBuff[2];
-    int count;          // num of repetion of character 
-    if (argc <= 1) {  // If number of arguments in command line less or equal 2  ,, no file pass
-        printf("wzip: file1 [file2 ...]\n");
-        exit(EXIT_FAILURE);   / / to terminate the program
+    FILE *fp = NULL;
+    char *line = NULL;
+    size_t linecap = 0;
+
+    if (argc <= 1) {     // there’s 1 or 2 arguments and  no file to read from
+        printf("wgrep: searchterm [file ...]\n");
+        exit(EXIT_FAILURE);  
     }
-    for (size_t i = 1; i < argc; i++) {
-        if ((fp = fopen(argv[i], "r")) == NULL) {
-            printf("wzip: cannot open file\n");
-            exit(EXIT_FAILURE);  / / which mean unsuccessful execution of a program
-        }
-        while (fread(buff, 1, 1, fp)) {     //read from file to array  buff
-            if (strcmp(buff, oldBuff) == 0) {       //compare buff and oldbuff by subtraction method
-                count++;
-            } else {
-                if (oldBuff[0] != '\0') writeFile(count, oldBuff);   //if old buff equal end of file
-                else {
-                   count = 1;
-                strcpy(oldBuff, buff);       / /copy  buff to oldbuff
-}
-            }
-        }
-        fclose(fp);
+
+    if (argc >= 3 && (fp = fopen(argv[2], "r")) == NULL) {   // can’t open and read from file "argv[2]" && command line consists of more than 3 arguments
+        printf("wgrep: cannot open file\n");
+        exit(EXIT_FAILURE);
     }
-    writeFile(count, oldBuff);    //send count and oldbuff to fun to display it
+
+    if (argc == 2) //  the command line with 3 arguments 'is complete' 
+        fp = stdin; // data will be read from file by program
+
+    while (getline(&line, &linecap, fp) > 0)  // reads full line from a stream
+        if (strstr(line, argv[1])) // search for the occurance of the argv[1] 'pattern we want' in the line and if found excute the next line
+            printf("%s", line);  // print the line that contains the argv[1]
+
+    free(line); // return data of line to the heap to be used for other process 
+    fclose(fp);  // close file 
+
     return 0;
 }
 
