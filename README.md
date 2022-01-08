@@ -79,14 +79,17 @@ Details
 
 • Do note that if multiple files are passed to *wzip, they arecompressed into a single compressed output, and when unzipped, willturn into a single uncompressed stream of text (thus, theinformation that multiple files were originally input into wzip islost). The same thing holds for wunzip.
 
+Expert Answer
+Answer to wzip and wunzip – MUST BE WRITTEN IN C The next tools you will build come in a pair, because one (wzip) is a file comp…
 
 # tests of zip and unzip
 
 ![wzip](https://user-images.githubusercontent.com/66404704/148626333-f2dbaf63-e263-46bd-865c-8777409b6adc.jpeg)
 
 
+![wunzip](https://user-images.githubusercontent.com/66404704/148626377-afd6b753-f95c-4001-a27c-7556707f26fa.jpeg)
 
 
 
-Expert Answer
-Answer to wzip and wunzip – MUST BE WRITTEN IN C The next tools you will build come in a pair, because one (wzip) is a file comp…
+
+
