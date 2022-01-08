@@ -49,21 +49,23 @@ Explanation: let’s say we do grep line which will search for the word line in 
 
 The type of compression used here is a simple form of compression called run-length encoding (RLE).
 
-RLE is quite simple: when you encounter n characters of the same type in a row, the compression tool (wzip) will turn that into the number n and a single instance of thecharacter.
+RLE is quite simple: when you encounter n characters of the same type in a row the compression tool (wzip) will turn that into the number n and a single instance of the character.
 
-Thus, if we had a file with the following contents: aaaaaaaaaabbbb 
+So if we had a file with the following contents: aaaaaaaaaabbbb 
 
-The tool would turn it (logically) into: 10a4b
+The tool would turn it into: 10a4b
 
-Here, you will write out a 4-byte integer in binaryformat followed by the single character in ASCII. Thus, acompressed file will consist of some number of 5-byte entries, eachof which is comprised of a 4-byte integer (the run length) and thesingle character.
+Here we will write out a 4-byte integer in binary format followed by the single character in ASCII. So a compressed file will consist of some number of 5-byte entries each of which is comprised of a 4-byte integer and the single character.
 
-To write out an integer in binary format (not ASCII), we should use fwrite(). For wzip, all output should be written to standard output (the stdoutfile stream, which, as with stdin, is already open when the program starts running).
+To write out an integer in binary format (not ASCII), we should use fwrite().
 
-Note that typical usage of the wzip tool would thus use shell redirection in order to write the compressed output to a file. Forexample, to compress the file file.txt into a (hopefully smaller)file.z, you would type:
+To compress the file file.txt into a file.z 
 
-prompt> ./wzipfile.txt > file.z
+We will type: prompt> ./wzip file.txt > file.z
 
-The “greater than” sign is a UNIX shell redirection; in this case, it ensures that the output from wzipis written to the filefile.z(instead of being printed to the screen). You’ll learn more about how this works a little later in the course.
+The “greater than” sign is a UNIX shell redirection.
+
+In this case, the output from wzip is written to the file file.z instead of being printed to the screen. You’ll learn more about how this works a little later in the course.
 
 The wunzip tool simply does the reverse of the wzip tool, takingin a compressed file and writing (to standard output again) theuncompressed results. For example, to see the contents of file.txt,you would type:
 
@@ -79,17 +81,14 @@ Details
 
 • Do note that if multiple files are passed to *wzip, they arecompressed into a single compressed output, and when unzipped, willturn into a single uncompressed stream of text (thus, theinformation that multiple files were originally input into wzip islost). The same thing holds for wunzip.
 
-Expert Answer
-Answer to wzip and wunzip – MUST BE WRITTEN IN C The next tools you will build come in a pair, because one (wzip) is a file comp…
 
 # tests of zip and unzip
 
 ![wzip](https://user-images.githubusercontent.com/66404704/148626333-f2dbaf63-e263-46bd-865c-8777409b6adc.jpeg)
 
 
-![wunzip](https://user-images.githubusercontent.com/66404704/148626377-afd6b753-f95c-4001-a27c-7556707f26fa.jpeg)
 
 
 
-
-
+Expert Answer
+Answer to wzip and wunzip – MUST BE WRITTEN IN C The next tools you will build come in a pair, because one (wzip) is a file comp…
